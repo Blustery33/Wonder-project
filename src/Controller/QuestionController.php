@@ -78,8 +78,8 @@ class QuestionController extends AbstractController
         $question->setRating($question->getRating() + $score);
         $entityManager->flush();
 
-        $referer = $request->headers->get('HTTP_REFERER');
-        return $referer ? $this->redirectToRoute($referer) : $this->redirectToRoute('app_home');
+        $referer = $request->server->get('HTTP_REFERER');
+        return $referer ? $this->redirect($referer) : $this->redirectToRoute('app_home');
 
     }
 
@@ -90,7 +90,7 @@ class QuestionController extends AbstractController
         $entityManager->flush();
 
         $referer = $request->headers->get('HTTP_REFERER');
-        return $referer ? $this->redirectToRoute($referer) : $this->redirectToRoute('app_home');
+        return $referer ? $this->redirect($referer) : $this->redirectToRoute('app_home');
 
     }
 }

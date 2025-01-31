@@ -394,3 +394,7 @@ footer {
 .rating-down {
     color: var(--warning);
 }
+
+.text-center{
+    text-align: center;
+}
